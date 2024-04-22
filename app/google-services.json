@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "673554014191",
+    "project_id": "mobile-app-ca3",
+    "storage_bucket": "mobile-app-ca3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673554014191:android:c54210b11ae49313f3201a",
+        "android_client_info": {
+          "package_name": "com.stu74529.mobile_app_ca3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoFU3cX15bcMLD26UgXxA5bxY5cKKs4yA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
