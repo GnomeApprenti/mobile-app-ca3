@@ -31,6 +31,17 @@ fun AppNavigation(auth: FirebaseAuth) {
             RegistrationScreen(navController = navController, auth=auth)
         }
 
+        composable(route = Routes.ProductScreen.route + "/{productId}",
+            arguments = listOf(
+                navArgument("productId"){
+                    type = NavType.StringType
+                    defaultValue = ""
+                }
+            )){ entry ->
+            entry.arguments?.let { ProductScreen(productId = "" + it.getString("productId"),navController = navController, auth=auth) }
+        }
+
+
         composable(route = Routes.CategoryScreen.route + "/{categoryName}",
             arguments = listOf(
                 navArgument("categoryName"){

@@ -44,6 +44,8 @@ fun HomeScreen(navController : NavController) {
     CategoriesScreen(navController)
 }
 
+val cart = Cart()
+
 interface FakeStoreApiService {
     @GET("products/categories")
     suspend fun getCategories(): List<String>

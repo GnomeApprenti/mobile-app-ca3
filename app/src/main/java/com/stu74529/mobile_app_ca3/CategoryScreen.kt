@@ -49,7 +49,7 @@ fun CategoryScreen(navController : NavController, auth: FirebaseAuth, categoryNa
     Text(text = "Go back", modifier = Modifier.clickable {
         navController.navigate(Routes.HomeScreen.route)
     })
-    ProductsByCategoryScreen(categoryName)
+    ProductsByCategoryScreen(categoryName, navController)
 }
 
 data class Product(
@@ -89,7 +89,7 @@ class ProductsByCategoryViewModel : ViewModel() {
 
 
 @Composable
-fun ProductsByCategoryScreen(categoryName: String, viewModel: ProductsByCategoryViewModel = viewModel()) {
+fun ProductsByCategoryScreen(categoryName: String, navController : NavController, viewModel: ProductsByCategoryViewModel = viewModel()) {
     val productsState = remember { mutableStateOf<List<Product>>(emptyList()) }
 
     LaunchedEffect(categoryName) {
@@ -106,7 +106,7 @@ fun ProductsByCategoryScreen(categoryName: String, viewModel: ProductsByCategory
         Spacer(modifier = Modifier.height(16.dp))
         LazyColumn {
             itemsIndexed(productsState.value) { index, product ->
-                ProductItem(product = product)
+                ProductItem(product = product, navController)
                 Divider()
             }
         }
@@ -118,12 +118,14 @@ fun ProductsByCategoryScreen(categoryName: String, viewModel: ProductsByCategory
 
 
 @Composable
-fun ProductItem(product: Product) {
+fun ProductItem(product: Product, navController : NavController) {
     Row(
         modifier = Modifier
             .padding(16.dp)
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .clickable { navController.navigate(Routes.ProductScreen.route+"/"+product.id) },
         verticalAlignment = Alignment.CenterVertically
+
     ) {
         AsyncImage(modifier = Modifier
             .height(50.dp)

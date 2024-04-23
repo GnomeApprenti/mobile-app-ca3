@@ -62,7 +62,6 @@ fun LoginScreen(navController : NavController, auth: FirebaseAuth) {
 
             TextButton(onClick =
             {
-
                 auth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener{
                         if(it.isSuccessful){
